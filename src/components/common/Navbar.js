@@ -10,9 +10,9 @@ export default function Navbar() {
         <Link href="/" className="flex items-center">
           {/* eslint-disable-next-line */}
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="./assets/images/logo2.png"
             className="h-8 mr-3"
-            alt="Flowbite Logo"
+            alt="Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Rachidi group

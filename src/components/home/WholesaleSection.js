@@ -9,8 +9,8 @@ export default function WholesaleSection() {
             <div class="relative h-64 sm:h-80 lg:h-full">
               {/* eslint-disable-next-line */}
               <img
-                alt="House"
-                src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                alt="wholesale"
+                src="./assets/images/superMarket.jpeg"
                 class="absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -21,19 +21,23 @@ export default function WholesaleSection() {
 
             <div class="p-8 sm:p-16 lg:p-24">
               <h2 class="text-2xl font-bold sm:text-3xl">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Tempore, debitis.
+                Wholesale and Retail
               </h2>
 
               <p class="mt-4 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                beatae, magni dolores provident quaerat totam eos, aperiam
-                architecto eius quis quibusdam fugiat dicta.
+                Welcome to our wholesale and retail section! We offer
+                personalized service and competitive pricing for businesses and
+                individuals looking to purchase our high-quality products. Our
+                carefully sourced products meet all necessary quality standards,
+                and we&apos;re committed to ensuring that our customers receive
+                the best possible value. Whether you&apos;re looking to order in
+                bulk or just need a few items for personal use, our team is here
+                to help. Place your order today and experience the convenience
+                and quality of our wholesale and retail services.
               </p>
 
               <Button className="mt-4">
-                <a href="#">Get in Touch</a>
+                <a href="#">Make a proforma</a>
               </Button>
             </div>
           </div>

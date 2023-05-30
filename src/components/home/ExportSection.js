@@ -9,20 +9,22 @@ export default function ExportSection() {
             <span class="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"></span>
 
             <div class="p-8 sm:p-16 lg:p-24">
-              <h2 class="text-2xl font-bold sm:text-3xl">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Tempore, debitis.
-              </h2>
+              <h2 class="text-2xl font-bold sm:text-3xl">Export</h2>
 
               <p class="mt-4 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                beatae, magni dolores provident quaerat totam eos, aperiam
-                architecto eius quis quibusdam fugiat dicta.
+                Our export section is dedicated to providing high-quality
+                products for international customers. We work closely with our
+                clients to ensure that their specific needs and requirements are
+                met. Whether you&apos;re looking to order in bulk or have
+                specific shipping requirements, our team is here to help. Our
+                products are carefully sourced and meet all necessary standards
+                and regulations for international shipping. Place your order
+                today and experience our exceptional service and quality
+                products.
               </p>
 
               <Button className="mt-4">
-                <a href="#">Get in Touch</a>
+                <a href="#">Make a proforma</a>
               </Button>
             </div>
           </div>
@@ -30,8 +32,8 @@ export default function ExportSection() {
             <div class="relative h-64 sm:h-80 lg:h-full">
               {/* eslint-disable-next-line */}
               <img
-                alt="House"
-                src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                alt="Export"
+                src=".\assets\images\export.jpg"
                 class="absolute inset-0 h-full w-full object-cover"
               />
             </div>
