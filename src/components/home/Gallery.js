@@ -1,68 +1,52 @@
-export default function Gallery() {
-  return (
-    <div id="gallery" class="relative w-full" data-carousel="slide">
-      {/* Carousel wrapper */}
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {/* Item 1 */}
+import Image from "next/image";
+import { useState } from "react";
 
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          {/* eslint-disable-next-line */}
+export default function Gallery() {
+  const [active, setActive] = useState(0)
+
+  const arrayOfImages = [
+    '/assets/images/1.jpg',
+    '/assets/images/3.jpg',
+    '/assets/images/8.jpg',
+    '/assets/images/9.jpg',
+    '/assets/images/as.jpg',
+  ]
+  return (
+    <div id="gallery" className="relative w-full" data-carousel="slide">
+      {/* Carousel wrapper */}
+      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+        {/* Item 1 */}
+        {arrayOfImages.map((src, idx) => (
+          /* eslint-disable-next-line */
           <img
-            src="./assets/images/1.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt=""
-          />
-        </div>
-        {/* Item 2 */}
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item="active"
-        >
-          {/* eslint-disable-next-line */}
-          <img
-            src="./assets/images/3.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt=""
-          />
-        </div>
-        {/* Item 3 */}
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          {/* eslint-disable-next-line */}
-          <img
-            src="./assets/images/8.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt=""
-          />
-        </div>
-        {/* Item 4 */}
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          {/* eslint-disable-next-line */}
-          <img
-            src="./assets/images/9.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt=""
-          />
-        </div>
-        {/* Item 5 */}
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          {/* eslint-disable-next-line */}
-          <img
-            src="./assets/images/as.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt=""
-          />
-        </div>
+            src={src}
+            key={src}
+            className={`${idx == (active % arrayOfImages.length)
+              ? "left-1/2 -translate-x-1/2"
+              : idx < (active % arrayOfImages.length)
+                ? "-left-full"
+                : "left-full"} absolute block max-w-full h-80 transition-all object-contain`} />
+        ))}
+
       </div>
       {/* Slider controls */}
       <button
         type="button"
-        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-prev
+        onClick={() => {
+          if (active - 1 < 0) {
+            setActive(arrayOfImages.length - 1)
+          } else {
+            setActive(prev => (prev - 1) % arrayOfImages.length)
+          }
+        }}
       >
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
             aria-hidden="true"
-            class="w-6 h-6 text-white dark:text-gray-800"
+            className="w-6 h-6 text-white dark:text-gray-800"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -75,18 +59,19 @@ export default function Gallery() {
               d="M15 19l-7-7 7-7"
             ></path>
           </svg>
-          <span class="sr-only">Previous</span>
+          <span className="sr-only">Previous</span>
         </span>
       </button>
       <button
         type="button"
-        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-next
+        onClick={() => setActive(prev => (prev + 1) % arrayOfImages.length)}
       >
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
             aria-hidden="true"
-            class="w-6 h-6 text-white dark:text-gray-800"
+            className="w-6 h-6 text-white dark:text-gray-800"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -99,7 +84,7 @@ export default function Gallery() {
               d="M9 5l7 7-7 7"
             ></path>
           </svg>
-          <span class="sr-only">Next</span>
+          <span className="sr-only">Next</span>
         </span>
       </button>
     </div>
