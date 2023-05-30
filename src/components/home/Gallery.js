@@ -2,15 +2,15 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Gallery() {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
 
   const arrayOfImages = [
-    '/assets/images/1.jpg',
-    '/assets/images/3.jpg',
-    '/assets/images/8.jpg',
-    '/assets/images/9.jpg',
-    '/assets/images/as.jpg',
-  ]
+    "/assets/images/1.jpg",
+    "/assets/images/3.jpg",
+    "/assets/images/8.jpg",
+    "/assets/images/9.jpg",
+    "/assets/images/as.jpg",
+  ];
   return (
     <div id="gallery" className="relative w-full" data-carousel="slide">
       {/* Carousel wrapper */}
@@ -22,13 +22,15 @@ export default function Gallery() {
             alt=""
             src={src}
             key={src}
-            className={`${idx == (active % arrayOfImages.length)
-              ? "left-1/2 -translate-x-1/2"
-              : idx < (active % arrayOfImages.length)
+            className={`${
+              idx == active % arrayOfImages.length
+                ? "left-1/2 -translate-x-1/2"
+                : idx < active % arrayOfImages.length
                 ? "-left-full"
-                : "left-full"} absolute block max-w-full h-80 transition-all object-contain`} />
+                : "left-full"
+            } absolute block max-w-full h-80 transition-all object-contain`}
+          />
         ))}
-
       </div>
       {/* Slider controls */}
       <button
@@ -37,9 +39,9 @@ export default function Gallery() {
         data-carousel-prev
         onClick={() => {
           if (active - 1 < 0) {
-            setActive(arrayOfImages.length - 1)
+            setActive(arrayOfImages.length - 1);
           } else {
-            setActive(prev => (prev - 1) % arrayOfImages.length)
+            setActive((prev) => (prev - 1) % arrayOfImages.length);
           }
         }}
       >
@@ -66,7 +68,7 @@ export default function Gallery() {
         type="button"
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-next
-        onClick={() => setActive(prev => (prev + 1) % arrayOfImages.length)}
+        onClick={() => setActive((prev) => (prev + 1) % arrayOfImages.length)}
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
