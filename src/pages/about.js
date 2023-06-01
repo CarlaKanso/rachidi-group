@@ -1,9 +1,12 @@
+import AboutCompany from "@/components/AboutUs/AboutCompany";
+import Mission from "@/components/AboutUs/Mission";
 import PublicLayout from "@/components/layout/PublicLayout";
 
 export default function About() {
   return (
     <PublicLayout>
-      <h2>Hello</h2>
+      <AboutCompany />
+      <Mission />
     </PublicLayout>
   );
 }
