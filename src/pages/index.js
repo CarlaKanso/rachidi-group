@@ -12,7 +12,8 @@ export default function Home() {
   return (
     <>
       <PublicLayout>
-        <ImageCarousel />
+        <Gallery />
+        {/* <ImageCarousel /> */}
         <ExportSection />
         <WholesaleSection />
         <FoodParcelsSection />

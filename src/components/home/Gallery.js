@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Gallery() {
   const [active, setActive] = useState(0);
@@ -10,11 +10,25 @@ export default function Gallery() {
     "/assets/images/8.jpg",
     "/assets/images/9.jpg",
     "/assets/images/as.jpg",
+    "/assets/images/issa.jpeg",
   ];
+
+
+  useEffect(() => {
+    let interval = setInterval(() => {
+      document.querySelector("button[data-carousel-next]").click()
+    }, 5000)
+
+
+    return () => clearInterval(interval)
+
+  }, [])
+
+
   return (
     <div id="gallery" className="relative w-full" data-carousel="slide">
       {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div className="relative overflow-hidden h-46 rounded-lg md:h-96">
         {/* Item 1 */}
         {arrayOfImages.map((src, idx) => (
           /* eslint-disable-next-line */
@@ -22,13 +36,12 @@ export default function Gallery() {
             alt=""
             src={src}
             key={src}
-            className={`${
-              idx == active % arrayOfImages.length
-                ? "left-1/2 -translate-x-1/2"
-                : idx < active % arrayOfImages.length
+            className={`${idx == active % arrayOfImages.length
+              ? "left-1/2 -translate-x-1/2"
+              : idx < active % arrayOfImages.length
                 ? "-left-full"
                 : "left-full"
-            } absolute block max-w-full h-80 transition-all object-contain`}
+              } absolute block w-screen transition-all object-cover`}
           />
         ))}
       </div>
@@ -45,7 +58,7 @@ export default function Gallery() {
           }
         }}
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
           <svg
             aria-hidden="true"
             className="w-6 h-6 text-white dark:text-gray-800"
@@ -70,7 +83,7 @@ export default function Gallery() {
         data-carousel-next
         onClick={() => setActive((prev) => (prev + 1) % arrayOfImages.length)}
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
             aria-hidden="true"
             className="w-6 h-6 text-white dark:text-gray-800"

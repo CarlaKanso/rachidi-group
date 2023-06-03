@@ -16,15 +16,15 @@ export default function WholesaleSection() {
             </div>
           </div>
 
-          <div className="relative flex items-center bg-gray-100">
-            <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"></span>
+          <div className="relative flex items-center bg-gray-100 dark:bg-gray-800">
+            <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100 dark:lg:bg-gray-800"></span>
 
             <div className="p-8 sm:p-16 lg:p-24">
-              <h2 className="text-2xl font-bold sm:text-3xl">
+              <h2 className="text-2xl font-bold sm:text-3xl text-black dark:text-gray-100">
                 Wholesale and Retail
               </h2>
 
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
                 Welcome to our wholesale and retail section! We offer
                 personalized service and competitive pricing for businesses and
                 individuals looking to purchase our high-quality products. Our

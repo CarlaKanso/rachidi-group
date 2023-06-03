@@ -2,12 +2,6 @@ import React from "react";
 
 function ImageCarousel() {
   const styles = `
-    html, body {
-      margin: 0;
-      padding: 0;
-    
-    }
-
     .pic-ctn {
       width: 200px;
       height: 100px;
@@ -68,6 +62,7 @@ function ImageCarousel() {
     }
   `;
 
+  { }
   return (
     <div>
       <style>{styles}</style>

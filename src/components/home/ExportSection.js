@@ -5,13 +5,13 @@ export default function ExportSection() {
     <section>
       <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-          <div className="relative flex items-center bg-gray-100">
-            <span className="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100"></span>
+          <div className="relative flex items-center bg-gray-100 dark:bg-gray-800">
+            <span className="hidden lg:absolute lg:inset-y-0 lg:-end-16 lg:block lg:w-16 lg:bg-gray-100 dark:lg:bg-gray-800"></span>
 
             <div className="p-8 sm:p-16 lg:p-24">
-              <h2 className="text-2xl font-bold sm:text-3xl">Export</h2>
+              <h2 className="text-2xl font-bold sm:text-3xl text-black dark:text-gray-100">Export</h2>
 
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
                 Our export section is dedicated to providing high-quality
                 products for international customers. We work closely with our
                 clients to ensure that their specific needs and requirements are

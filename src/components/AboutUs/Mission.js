@@ -14,15 +14,15 @@ export default function Mission() {
             </div>
           </div>
 
-          <div className="relative flex items-center bg-gray-100">
-            <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"></span>
+          <div className="relative flex items-center bg-gray-100 dark:bg-gray-800">
+            <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100 dark:lg:bg-gray-800"></span>
 
             <div className="p-8 sm:p-16 lg:p-24">
-              <h2 className="text-2xl font-bold sm:text-3xl">
+              <h2 className="text-2xl text-black font-bold sm:text-3xl dark:text-gray-100">
                 Our mission and values
               </h2>
 
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
                 At Rachidi Group, our mission is to provide our customers with
                 the highest quality food products and exceptional service, both
                 locally and internationally. We are committed to ensuring that
