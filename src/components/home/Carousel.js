@@ -62,7 +62,8 @@ function ImageCarousel() {
     }
   `;
 
-  { }
+  {
+  }
   return (
     <div>
       <style>{styles}</style>

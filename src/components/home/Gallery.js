@@ -5,25 +5,20 @@ export default function Gallery() {
   const [active, setActive] = useState(0);
 
   const arrayOfImages = [
-    "/assets/images/1.jpg",
-    "/assets/images/3.jpg",
-    "/assets/images/8.jpg",
-    "/assets/images/9.jpg",
-    "/assets/images/as.jpg",
-    "/assets/images/issa.jpeg",
+    "/assets/images/greenpeas.jpg",
+    "/assets/images/hala.JPG",
+    "/assets/images/coffeeBreak.JPG",
+    "/assets/images/holidayAll.JPG",
+    "/assets/images/OSRA.JPG",
   ];
-
 
   useEffect(() => {
     let interval = setInterval(() => {
-      document.querySelector("button[data-carousel-next]").click()
-    }, 5000)
+      document.querySelector("button[data-carousel-next]").click();
+    }, 5000);
 
-
-    return () => clearInterval(interval)
-
-  }, [])
-
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div id="gallery" className="relative w-full" data-carousel="slide">
@@ -36,12 +31,13 @@ export default function Gallery() {
             alt=""
             src={src}
             key={src}
-            className={`${idx == active % arrayOfImages.length
-              ? "left-1/2 -translate-x-1/2"
-              : idx < active % arrayOfImages.length
+            className={`${
+              idx == active % arrayOfImages.length
+                ? "left-1/2 -translate-x-1/2"
+                : idx < active % arrayOfImages.length
                 ? "-left-full"
                 : "left-full"
-              } absolute block w-screen transition-all object-cover`}
+            } absolute block w-screen transition-all object-cover`}
           />
         ))}
       </div>
