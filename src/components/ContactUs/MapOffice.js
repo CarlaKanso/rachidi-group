@@ -1,17 +1,12 @@
-
-import GoogleMapReact from 'google-map-react';
-
-
+import GoogleMapReact from "google-map-react";
 export default function MapOffice() {
-
-
   const defaultProps = {
     center: {
       // 33.8547° N, 35.8623° E
       lat: 33.8547,
-      lng: 35.8623
+      lng: 35.8623,
     },
-    zoom: 9
+    zoom: 9,
   };
   return (
     <div className="flex flex-wrap justify-between">
@@ -40,11 +35,12 @@ export default function MapOffice() {
       <div className="w-full md:w-1/2">
         <h2 className="text-2xl font-bold mb-4">Our Location</h2>
         {/* <!-- Replace the iframe URL with the URL of your map --> */}
-        <div style={{ height: '600px', width: '100%' }}>
+        <div style={{ height: "600px", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: "" }}
             defaultCenter={defaultProps.center}
-            defaultZoom={defaultProps.zoom}></GoogleMapReact>
+            defaultZoom={defaultProps.zoom}
+          ></GoogleMapReact>
         </div>
       </div>
     </div>
