@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Gallery() {
+export default function Gallery({ name, user }) {
   const [active, setActive] = useState(0);
 
   const arrayOfImages = [
@@ -23,7 +23,7 @@ export default function Gallery() {
   return (
     <div id="gallery" className="relative w-full" data-carousel="slide">
       {/* Carousel wrapper */}
-      <div className="relative overflow-hidden h-46 rounded-lg md:h-96">
+      <div className="relative overflow-hidden h-46 rounded-lg md:h-[600px]">
         {/* Item 1 */}
         {arrayOfImages.map((src, idx) => (
           /* eslint-disable-next-line */
@@ -31,13 +31,12 @@ export default function Gallery() {
             alt=""
             src={src}
             key={src}
-            className={`${
-              idx == active % arrayOfImages.length
-                ? "left-1/2 -translate-x-1/2"
-                : idx < active % arrayOfImages.length
+            className={`${idx == active % arrayOfImages.length
+              ? "left-1/2 -translate-x-1/2"
+              : idx < active % arrayOfImages.length
                 ? "-left-full"
                 : "left-full"
-            } absolute block w-screen transition-all object-cover`}
+              } absolute block w-screen transition-all object-cover`}
           />
         ))}
       </div>

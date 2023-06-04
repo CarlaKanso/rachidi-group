@@ -7,12 +7,18 @@ import FoodParcelsSection from "@/components/home/FoodParcelsSection";
 import Gallery from "@/components/home/Gallery";
 import Brands from "@/components/home/Brands";
 import ImageCarousel from "@/components/home/Carousel";
+import useAuth from "@/hooks/useAuth";
 
 export default function Home() {
   return (
     <>
       <PublicLayout>
-        <Gallery />
+        <Gallery name="ali" user={{
+          name: "Issa",
+          age: 23,
+          hobby: "coding",
+          pet: "carla"
+        }} />
         {/* <ImageCarousel /> */}
         <ExportSection />
         <WholesaleSection />
