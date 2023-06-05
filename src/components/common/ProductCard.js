@@ -3,7 +3,7 @@ import React from "react";
 
 export default function ProductCard({ product }) {
   return (
-    <div className="card">
+    <div className="product-card">
       <div className="imgBx">
         {/* eslint-disable-next-line */}
         <img src={product.imageUrl} alt={product.description + " image"} />

@@ -7,7 +7,6 @@ export default function ContactUS() {
     <>
       <PublicLayout>
         <ContactForm />
-        <MapOffice />
       </PublicLayout>
     </>
   );

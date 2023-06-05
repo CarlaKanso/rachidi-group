@@ -1,9 +1,13 @@
+import { ALLOWED_EMAILS } from "@/hooks/routes";
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
-  const [showProforma, setShowProforma] = useState(false)
+  const [showProforma, setShowProforma] = useState(false);
+  const { user, logout } = useAuth();
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-800">
@@ -19,8 +23,9 @@ export default function Navbar() {
           </div>
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </Link>
-        <div className="flex items-center md:order-2">
+        <div className="flex items-center md:order-2 relative">
           <button
+            onClick={() => setShowUserDropdown((prev) => !prev)}
             type="button"
             className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
             id="user-menu-button"
@@ -32,60 +37,77 @@ export default function Navbar() {
             {/* eslint-disable-next-line */}
             <img
               className="w-8 h-8 rounded-full"
-              src="/assets/images/as.jpg"
+              src={
+                !!user?.profilePhoto
+                  ? user.profilePhoto
+                  : "/assets/images/as.jpg"
+              }
               alt="user photo"
             />
           </button>
           {/* <!-- Dropdown menu --> */}
-          <div
-            className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-600"
-            id="user-dropdown"
-          >
-            <div className="px-4 py-3">
-              <span className="block text-sm text-gray-900 dark:text-white">
-                Bonnie Green
-              </span>
-              <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                name@flowbite.com
-              </span>
-            </div>
-            <ul className="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          {showUserDropdown && (
+            <>
+              {user != null ? (
+                <div
+                  className="z-50 absolute top-10 right-5 min-w-[150px] my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-600"
+                  id="user-dropdown"
                 >
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  <div className="px-4 py-3">
+                    <span className="block text-sm text-gray-900 dark:text-white">
+                      {user.displayName}
+                    </span>
+                    <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                      {user.email}
+                    </span>
+                  </div>
+                  <ul className="py-2" aria-labelledby="user-menu-button">
+                    {ALLOWED_EMAILS.indexOf(user.email) >= 0 && (
+                      <li>
+                        <Link
+                          href="/admin"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    )}
+                    <li>
+                      <button
+                        onClick={logout}
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Sign out
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <div
+                  className="z-50 absolute top-10 right-5 min-w-[150px] my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-600"
+                  id="user-dropdown"
                 >
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >
-                  Earnings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >
-                  Sign out
-                </a>
-              </li>
-            </ul>
-          </div>
+                  <div className="">
+                    <Link
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      href="/login"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      href="/register"
+                    >
+                      Sign up
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
           <button
-            onClick={() => setShowNavbar(prev => !prev)}
+            onClick={() => setShowNavbar((prev) => !prev)}
             data-collapse-toggle="mobile-menu-2"
             type="button"
             className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
@@ -109,7 +131,9 @@ export default function Navbar() {
           </button>
         </div>
         <div
-          className={`items-center justify-between  ${showNavbar ? "block" : "hidden"} w-full md:flex md:w-auto md:order-1`}
+          className={`items-center justify-between  ${
+            showNavbar ? "block" : "hidden"
+          } w-full md:flex md:w-auto md:order-1`}
           id="mobile-menu-2"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
@@ -122,7 +146,9 @@ export default function Navbar() {
                 Home
               </Link>
             </li>
-            <li className="relative" onMouseEnter={() => setShowProforma(true)}
+            <li
+              className="relative"
+              onMouseEnter={() => setShowProforma(true)}
               onMouseLeave={() => setShowProforma(false)}
             >
               <button className="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-800 md:dark:hover:bg-transparent">
@@ -144,7 +170,9 @@ export default function Navbar() {
               {/* <!-- Dropdown menu --> */}
               <div
                 id="dropdownNavbar"
-                className={`z-10 ${showProforma ? "block" : "hidden"} md:absolute top-6 font-normal bg-white divide-y divide-gray-100 w-full rounded-lg shadow md:w-44 dark:bg-gray-700 dark:divide-gray-600`}
+                className={`z-10 ${
+                  showProforma ? "block" : "hidden"
+                } md:absolute top-6 font-normal bg-white divide-y divide-gray-100 w-full rounded-lg shadow md:w-44 dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-400"

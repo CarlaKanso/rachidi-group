@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Gallery({ name, user }) {
+export default function Gallery() {
   const [active, setActive] = useState(0);
 
   const arrayOfImages = [
@@ -23,7 +23,7 @@ export default function Gallery({ name, user }) {
   return (
     <div id="gallery" className="relative w-full" data-carousel="slide">
       {/* Carousel wrapper */}
-      <div className="relative overflow-hidden h-46 rounded-lg md:h-[600px]">
+      <div className="relative overflow-hidden h-46 rounded-lg min-h-[300px] md:h-[600px]">
         {/* Item 1 */}
         {arrayOfImages.map((src, idx) => (
           /* eslint-disable-next-line */
@@ -31,12 +31,13 @@ export default function Gallery({ name, user }) {
             alt=""
             src={src}
             key={src}
-            className={`${idx == active % arrayOfImages.length
-              ? "left-1/2 -translate-x-1/2"
-              : idx < active % arrayOfImages.length
+            className={`${
+              idx == active % arrayOfImages.length
+                ? "left-1/2 -translate-x-1/2"
+                : idx < active % arrayOfImages.length
                 ? "-left-full"
                 : "left-full"
-              } absolute block w-screen transition-all object-cover`}
+            } absolute block w-screen transition-all object-cover top-1/2 -translate-y-1/2`}
           />
         ))}
       </div>
@@ -63,9 +64,9 @@ export default function Gallery({ name, user }) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M15 19l-7-7 7-7"
             ></path>
           </svg>
@@ -88,9 +89,9 @@ export default function Gallery({ name, user }) {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M9 5l7 7-7 7"
             ></path>
           </svg>

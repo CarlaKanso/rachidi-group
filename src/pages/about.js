@@ -1,8 +1,9 @@
 import AboutCompany from "@/components/AboutUs/AboutCompany";
 import Mission from "@/components/AboutUs/Mission";
 import PublicLayout from "@/components/layout/PublicLayout";
+import { withAuth } from "@/hooks/routes";
 
-export default function About() {
+function About() {
   return (
     <PublicLayout>
       <AboutCompany />
@@ -10,3 +11,5 @@ export default function About() {
     </PublicLayout>
   );
 }
+
+export default withAuth(About);

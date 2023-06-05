@@ -13,12 +13,7 @@ export default function Home() {
   return (
     <>
       <PublicLayout>
-        <Gallery name="ali" user={{
-          name: "Issa",
-          age: 23,
-          hobby: "coding",
-          pet: "carla"
-        }} />
+        <Gallery />
         {/* <ImageCarousel /> */}
         <ExportSection />
         <WholesaleSection />

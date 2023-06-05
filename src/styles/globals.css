@@ -20,7 +20,6 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
-
 body {
   background-color: white;
 }
@@ -31,22 +30,18 @@ body {
   }
 }
 
-.custom-container {
-  position: relative;
-}
-
-.custom-container .card {
+.product-card {
   position: relative;
   margin-bottom: 20px;
   margin-left: 20px;
-  width: 320px;
-  height: 450px;
+  /* width: 320px; */
+  min-height: 450px;
   background: #232323;
   border-radius: 20px;
   overflow: hidden;
 }
 
-.custom-container .card:before {
+.product-card:before {
   content: "";
   position: absolute;
   top: 0;
@@ -58,11 +53,11 @@ body {
   transition: 0.5s ease-in-out;
 }
 
-.custom-container .card:hover:before {
+.product-card:hover:before {
   clip-path: circle(300px at 80% -20%);
 }
 
-.custom-container .card:after {
+.product-card:after {
   content: "";
   position: absolute;
   top: 30%;
@@ -73,23 +68,23 @@ body {
   color: rgba(255, 255, 255, 0.04);
 }
 
-.custom-container .card .imgBx {
+.product-card .imgBx {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1000;
+  z-index: 2;
   width: 100%;
   height: 100%;
   transition: 0.5s;
 }
 
-.custom-container .card:hover .imgBx {
+.product-card:hover .imgBx {
   top: 0%;
   transform: translateY(-25%);
   /* bug  */
 }
 
-.custom-container .card .imgBx img {
+.product-card .imgBx img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -97,29 +92,30 @@ body {
   width: 270px;
 }
 
-.custom-container .card .contentBx {
+.product-card .contentBx {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 100px;
   text-align: center;
   transition: 1s;
-  z-index: 90;
+  z-index: 1;
 }
 
-.custom-container .card:hover .contentBx {
+.product-card:hover .contentBx {
   height: 210px;
+  z-index: 3;
 }
 
-.custom-container .card .contentBx h2 {
+.product-card .contentBx h2 {
   position: relative;
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
 }
 
-.custom-container .card .contentBx .size,
-.custom-container .card .contentBx .color {
+.product-card .contentBx .size,
+.product-card .contentBx .color {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,20 +125,20 @@ body {
   visibility: hidden;
 }
 
-.custom-container .card:hover .contentBx .size {
+.product-card:hover .contentBx .size {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.5s;
 }
 
-.custom-container .card:hover .contentBx .color {
+.product-card:hover .contentBx .color {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.6s;
 }
 
-.custom-container .card .contentBx .size h3,
-.custom-container .card .contentBx .color h3 {
+.product-card .contentBx .size h3,
+.product-card .contentBx .color h3 {
   color: white;
   font-weight: 300;
   font-size: 14px;
@@ -151,7 +147,7 @@ body {
   margin-right: 10px;
 }
 
-.custom-container .card .contentBx .size span {
+.product-card .contentBx .size span {
   width: 26px;
   height: 26px;
   text-align: center;
@@ -167,12 +163,12 @@ body {
   cursor: pointer;
 }
 
-.custom-container .card .contentBx .size span:hover {
+.product-card .contentBx .size span:hover {
   /* other bug */
   background: #b90000;
 }
 
-.custom-container .card .contentBx .color span {
+.product-card .contentBx .color span {
   width: 20px;
   height: 20px;
   background: #ff0;
@@ -181,19 +177,19 @@ body {
   cursor: pointer;
 }
 
-.custom-container .card .contentBx .color span:nth-child(2) {
+.product-card .contentBx .color span:nth-child(2) {
   background: #1bbfe9;
 }
 
-.custom-container .card .contentBx .color span:nth-child(3) {
+.product-card .contentBx .color span:nth-child(3) {
   background: #1b2fe9;
 }
 
-.custom-container .card .contentBx .color span:nth-child(4) {
+.product-card .contentBx .color span:nth-child(4) {
   background: #080481;
 }
 
-.custom-container .card .contentBx a {
+.product-card .contentBx a {
   display: inline-block;
   padding: 10px 20px;
   background: #fff;
@@ -205,10 +201,11 @@ body {
   opacity: 0;
   transform: translateY(50px);
   transition: 0.5s;
+  cursor: pointer;
 }
 
-.custom-container .card:hover .contentBx a {
+.product-card:hover .contentBx a {
   opacity: 1;
   transform: translateY(0px);
-  transition-delay: 0.7s;
+  transition-delay: 0.1s;
 }

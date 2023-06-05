@@ -1,11 +1,17 @@
+import { useState } from "react";
+import Button from "../common/Button";
+import ProductModal from "./ProductModal";
+
 export default function AdminTable() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <div className="pb-4 bg-white dark:bg-gray-900">
-        <label for="table-search" className="sr-only">
-          Search
-        </label>
-        <div className="relative mt-1">
+      <div className="pb-4 bg-white dark:bg-gray-900 flex justify-center items-center flex-wrap">
+        <div className="relative mt-1 mr-auto">
+          <label htmlFor="table-search" className="sr-only">
+            Search
+          </label>
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
               className="w-5 h-5 text-gray-500 dark:text-gray-400"
@@ -15,9 +21,9 @@ export default function AdminTable() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </div>
@@ -28,7 +34,12 @@ export default function AdminTable() {
             placeholder="Search for items"
           />
         </div>
+        <Button className="ml-auto mr-5" onClick={() => setShowModal(true)}>
+          Create a new Product
+        </Button>
+        {showModal && <ProductModal setShowModal={setShowModal} />}
       </div>
+
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -39,7 +50,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-all-search" className="sr-only">
+                <label htmlFor="checkbox-all-search" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -70,7 +81,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-search-1" className="sr-only">
+                <label htmlFor="checkbox-table-search-1" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -101,7 +112,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-search-2" className="sr-only">
+                <label htmlFor="checkbox-table-search-2" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -132,7 +143,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-search-3" className="sr-only">
+                <label htmlFor="checkbox-table-search-3" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -163,7 +174,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-3" className="sr-only">
+                <label htmlFor="checkbox-table-3" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -194,7 +205,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-3" className="sr-only">
+                <label htmlFor="checkbox-table-3" className="sr-only">
                   checkbox
                 </label>
               </div>
@@ -225,7 +236,7 @@ export default function AdminTable() {
                   type="checkbox"
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
-                <label for="checkbox-table-3" className="sr-only">
+                <label htmlFor="checkbox-table-3" className="sr-only">
                   checkbox
                 </label>
               </div>
