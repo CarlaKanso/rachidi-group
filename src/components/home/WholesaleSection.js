@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../common/Button";
 
 export default function WholesaleSection() {
@@ -37,7 +38,7 @@ export default function WholesaleSection() {
               </p>
 
               <Button className="mt-4">
-                <a href="#">Make a proforma</a>
+                <Link href="/wholesale">Make a proforma</Link>
               </Button>
             </div>
           </div>

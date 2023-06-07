@@ -12,4 +12,4 @@ function About() {
   );
 }
 
-export default withAuth(About);
+export default About;

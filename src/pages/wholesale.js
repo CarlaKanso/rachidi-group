@@ -1,11 +1,13 @@
-import ProductGrid from "@/components/Proforma/ProductGrid";
+import Proforma from "@/components/Proforma/Proforma";
 import PublicLayout from "@/components/layout/PublicLayout";
-import React from "react";
+import { withAuth } from "@/hooks/routes";
 
-export default function wholesale() {
+function wholesale() {
   return (
     <PublicLayout>
-      <ProductGrid proforma_type="wholesale" />
+      <Proforma proforma_type="wholesale" />
     </PublicLayout>
   );
 }
+
+export default withAuth(wholesale)

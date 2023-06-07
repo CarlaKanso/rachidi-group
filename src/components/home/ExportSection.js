@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../common/Button";
 
 export default function ExportSection() {
@@ -24,7 +25,7 @@ export default function ExportSection() {
               </p>
 
               <Button className="mt-4">
-                <a href="#">Make a proforma</a>
+                <Link href="/export">Make a proforma</Link>
               </Button>
             </div>
           </div>

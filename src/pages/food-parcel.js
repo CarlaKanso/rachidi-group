@@ -1,12 +1,14 @@
-import ProformaSection from "@/components/common/ProformaSection";
+import Proforma from "@/components/Proforma/Proforma";
 import PublicLayout from "@/components/layout/PublicLayout";
+import { withAuth } from "@/hooks/routes";
 import React from "react";
 
-export default function foodParcel() {
+function foodParcel() {
   return (
     <PublicLayout>
-      <h1>foodParcel</h1>
-      <ProformaSection />
+      <Proforma proforma_type="parcel" />
     </PublicLayout>
   );
 }
+
+export default withAuth(foodParcel)

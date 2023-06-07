@@ -1,6 +1,33 @@
+import { useState } from "react";
 import Button from "../common/Button";
 
 export default function ContactForm() {
+
+
+  const [formData, setFormData] = useState({
+    email: "",
+    subject: "",
+    message: "",
+  })
+
+  function handleChange(e) {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  function onSubmit() {
+
+
+    const subject = formData.subject + " from <" + formData.email + ">"
+
+    const finalUrl = `mailto:carla_kanso23@outlook.com?subject=${subject}&body=${formData.message}`;
+
+    window.location.href = finalUrl;
+
+  }
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
@@ -22,6 +49,9 @@ export default function ContactForm() {
             <input
               type="email"
               id="email"
+              onChange={handleChange}
+              name="email"
+              value={formData.email}
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               placeholder="name@flowbite.com"
               required
@@ -37,6 +67,9 @@ export default function ContactForm() {
             <input
               type="text"
               id="subject"
+              onChange={handleChange}
+              name="subject"
+              value={formData.subject}
               className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               placeholder="Let us know how we can help you"
               required
@@ -52,12 +85,15 @@ export default function ContactForm() {
             <textarea
               id="message"
               rows="6"
+              onChange={handleChange}
+              name="message"
+              value={formData.message}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Leave a comment..."
             ></textarea>
           </div>
-          <Button className="mt-4">
-            <a href="#">Send Message</a>
+          <Button onClick={onSubmit} className="mt-4">
+            Send Message
           </Button>
         </form>
       </div>

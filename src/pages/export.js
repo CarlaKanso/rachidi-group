@@ -1,11 +1,13 @@
-import ProductGrid from "@/components/Proforma/ProductGrid";
+import Proforma from "@/components/Proforma/Proforma";
 import PublicLayout from "@/components/layout/PublicLayout";
-import React, { useEffect } from "react";
+import { withAuth } from "@/hooks/routes";
 
-export default function Export() {
+function Export() {
   return (
     <PublicLayout>
-      <ProductGrid proforma_type="export" />
+      <Proforma proforma_type="export" />
     </PublicLayout>
   );
 }
+
+export default withAuth(Export)

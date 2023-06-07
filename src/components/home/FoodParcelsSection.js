@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../common/Button";
 
 export default function FoodParcelsSection() {
@@ -25,7 +26,7 @@ export default function FoodParcelsSection() {
               </p>
 
               <Button className="mt-4">
-                <a href="#">Make a proforma</a>
+                <Link href="/food-parcel">Make a proforma</Link>
               </Button>
             </div>
           </div>
