@@ -21,7 +21,7 @@ export default function ProductModal({ setShowModal }) {
     async function getAllCategories() {
       const arrayOfCategories = [];
       const chtouraCategories = await getDocs(
-        collectionGroup(db, "subcatergories")
+        collectionGroup(db, "subcategories")
       );
       chtouraCategories.forEach((chtoura) => {
         arrayOfCategories.push("chtoura_" + chtoura.data().name);
