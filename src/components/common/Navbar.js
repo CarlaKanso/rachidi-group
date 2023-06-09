@@ -40,7 +40,7 @@ export default function Navbar() {
               src={
                 !!user?.profilePhoto
                   ? user.profilePhoto
-                  : "/assets/images/as.jpg"
+                  : "/assets/images/user.jpg"
               }
               alt="user photo"
             />
@@ -131,8 +131,9 @@ export default function Navbar() {
           </button>
         </div>
         <div
-          className={`items-center justify-between  ${showNavbar ? "block" : "hidden"
-            } w-full md:flex md:w-auto md:order-1`}
+          className={`items-center justify-between  ${
+            showNavbar ? "block" : "hidden"
+          } w-full md:flex md:w-auto md:order-1`}
           id="mobile-menu-2"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
@@ -169,8 +170,9 @@ export default function Navbar() {
               {/* <!-- Dropdown menu --> */}
               <div
                 id="dropdownNavbar"
-                className={`z-10 ${showProforma ? "block" : "hidden"
-                  } md:absolute top-6 font-normal bg-white divide-y divide-gray-100 w-full rounded-lg shadow md:w-44 dark:bg-gray-700 dark:divide-gray-600`}
+                className={`z-10 ${
+                  showProforma ? "block" : "hidden"
+                } md:absolute top-6 font-normal bg-white divide-y divide-gray-100 w-full rounded-lg shadow md:w-44 dark:bg-gray-700 dark:divide-gray-600`}
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-400"

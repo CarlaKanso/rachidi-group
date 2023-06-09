@@ -21,7 +21,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <div id="gallery" className="relative w-full" data-carousel="slide">
+    <div id="gallery" className="relative w-full " data-carousel="slide">
       {/* Carousel wrapper */}
       <div className="relative overflow-hidden h-46 rounded-lg min-h-[300px] md:h-[600px]">
         {/* Item 1 */}
